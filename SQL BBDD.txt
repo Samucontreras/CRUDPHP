@@ -1,5 +1,5 @@
 SQL Queries:
-CREATE TABLE clients (
+CREATE TABLE clientes (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR (100) NOT NULL,
     email VARCHAR (200) NOT NULL UNIQUE,
@@ -9,7 +9,7 @@ CREATE TABLE clients (
 );
 
 
-INSERT INTO clients (name, email, phone, address)
+INSERT INTO clientes (name, email, phone, address)
 VALUES
 ('Bill Gates', 'bill.gates@microsoft.com', '+123456789', 'New York, USA'),
 ('Elon Musk', 'elon.musk@spacex.com', '+111222333', 'Florida, USA'),
