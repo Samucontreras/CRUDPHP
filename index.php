@@ -108,7 +108,7 @@
                     <td>$row[address]</td>
                     <td>$row[created_at]</td>
                     <td>
-                        <a class='btn' href='/crudphp/editar.php?id=$row[id]'>Editar</a>
+                        <a class='btn editar' href='/crudphp/editar.php?id=$row[id]'>Editar</a>
                         <a class='btn eliminar' href='javascript:confirmarEliminar($row[id])'>Eliminar</a>
                     </td>
                 </tr>

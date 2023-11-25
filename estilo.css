@@ -1,5 +1,5 @@
 body{
-    background-color: beige;
+    background-color: #f5f5dc;
     font-family: 'Times New Roman', serif;
 }
 
@@ -20,18 +20,26 @@ body{
 }
 
 .btn{
-    background-color: #ff8000;
+    background-color: #47c7fc;
 }
 .btn:hover{
     background-color: #0290cc;
 }
 
 .eliminar{
-    background-color: red;
+    background-color: #ff0000;
 }
 
 .eliminar:hover{
-    background-color: rgb(255, 88, 88);
+    background-color: #d40000;
+}
+
+.editar {
+    background-color: #ff8000;
+}
+
+.editar:hover{
+    background-color: #d46a00;
 }
 
 .alert1{
@@ -40,7 +48,7 @@ body{
 }
 
 .alert2{
-    background-color: rgb(9, 189, 9);
+    background-color: #09bd09;
     
 }
 
