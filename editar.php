@@ -84,53 +84,85 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="estilo.css">
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/crudphp/index.php">Tu Aplicación</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/CRUDPHP/crear.php">Nuevo Cliente</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <!-- NavBar -->
+    <nav class="navbar navbar-custom">
+        <a class="navbar-brand" href="/crudphp/index.php">
+            <img src="/crudphp/img/logo.png" width="160" height="50" class="d-inline-block align-top" alt="logo"></a>
+        <h1 class="h">Service Luxury</h1>
+        <ul class="navbar-nav d-flex flex-row">
+            <!-- Icons -->
+            <li class="nav-item me-2 me-lg-3">
+                <a class="nav-link" href="#">
+                    <i class="fab fa-facebook-f text-black"></i>
+                </a>
+            </li>
+            <li class="nav-item me-2 me-lg-3">
+                <a class="nav-link" href="#">
+                    <i class="fab fa-instagram text-black"></i>
+                </a>
+            </li>
+            <li class="nav-item me-2 me-lg-3">
+                <a class="nav-link" href="#">
+                    <i class="fab fa-linkedin text-black"></i>
+                </a>
+            </li>
+            <li class="nav-item me-2 me-lg-3">
+                <a class="nav-link" href="#">
+                    <i class="fab fa-github text-black"></i>
+                </a>
+            </li>
+            <li class="nav-item me-2 me-lg-3">
+                <a class="nav-link" href="#">
+                    <i class="fab fa-twitter text-black"></i>
+                </a>
+            </li>
+        </ul>
     </nav>
-    <div class="container my-5">
-        <h2>Editar Cliente</h2>
+    <!-- Fin NavBar -->
+    <div class="container my-5 text-center">
+        <h2>Editar Cliente</h2><br>
 
         <?php
         if (!empty($errorMessage)) {
             echo "
-            <div class='alert alert-warning alert-dismissible fade show' role='alert'>
-                <strong>$errorMessage</strong>
-                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
-            </div>
+            <div class='row mb-3'>
+                <div class='offset-sm-3 col-sm-6'>
+                    <div class='alert alert1 alert-dismissible fade show' role='alert'>
+                        <strong>$errorMessage</strong>
+                         <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                    </div>
+                </div>
+            </div>   
             ";
         }
 
         if (!empty($successMessage)) {
             echo "
-            <div class='alert alert-success alert-dismissible fade show' role='alert'>
-                <strong>$successMessage</strong>
-                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+            <div class='row mb-3'>
+                <div class='offset-sm-3 col-sm-6'>
+                    <div class='alert alert2 alert-dismissible fade show' role='alert'>
+                        <strong>$successMessage</strong>
+                        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                    </div>
+                </div>
             </div>
             ";
         }
         ?>
 
-        <form method="post">
+        <form method="post" class="text-center">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Nombre</label>
@@ -145,27 +177,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 </div>
             </div>
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Telefono</label>
+                <label class="col-sm-3 col-form-label">Teléfono</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" name="phone" value="<?php echo $phone; ?>">
                 </div>
             </div>
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Direccion</label>
+                <label class="col-sm-3 col-form-label">Dirección</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" name="address" value="<?php echo $address; ?>">
                 </div>
             </div>
-
-            <div class="row mb-3">
+            <div class="row">
                 <div class="offset-sm-3 col-sm-6">
-                    <button type="submit" class="btn btn-primary btn-block">Guardar Cambios</button>
+                    <button type="submit" class="btn btn-custom btn-block">Guardar Cambios</button>
                 </div>
-                <div class="col-sm-3">
-                    <a class="btn btn-outline-primary btn-block" href="/crudphp/index.php" role="button">Cancelar</a>
-                </div>
+
             </div>
         </form>
     </div>
+    <footer>
+    <p>&copy; <?php echo date("Y"); ?> Service Luxury. Todos los derechos reservados.</p>
+    </footer>
 </body>
+
 </html>
