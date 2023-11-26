@@ -49,37 +49,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $phone = $_POST["phone"];
     $address = $_POST["address"];
 
-    do {
-        if (empty($name) || empty($email) || empty($phone) || empty($address)) {
-            $errorMessage = "Todos los campos son requeridos";
-            break;
-        }
-
+    // Validar campos
+    if (empty($name) || empty($email) || empty($phone) || empty($address)) {
+        $errorMessage = "Todos los campos son requeridos";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errorMessage = "Formato de correo electrónico inválido";
+    } elseif (!is_numeric($phone) || strlen($phone) !== 9) {
+        $errorMessage = "El campo de teléfono debe contener exactamente 9 dígitos numéricos";
+    } else {
         // Verificar correo electrónico duplicado
         $checkDuplicateEmail = "SELECT * FROM clientes WHERE email='$email' AND id != $id";
         $duplicateResult = $connection->query($checkDuplicateEmail);
 
         if ($duplicateResult && $duplicateResult->num_rows > 0) {
             $errorMessage = "El correo electrónico ya está en uso. Por favor, utiliza otro.";
-            break;
+        } else {
+            // Actualizar datos en la base de datos
+            $sql = "UPDATE clientes SET name = '$name', email = '$email', phone = '$phone', address = '$address' WHERE id = $id";
+            $result = $connection->query($sql);
+
+            if (!$result) {
+                $errorMessage = "Error al actualizar el cliente: " . $connection->error;
+            } else {
+                $successMessage = "Cliente se actualizó correctamente";
+            }
         }
-
-        $sql = "UPDATE clientes " .
-            "SET name = '$name', email = '$email', phone = '$phone', address = '$address' " .
-            "WHERE id = $id";
-
-        $result = $connection->query($sql);
-
-        if (!$result) {
-            $errorMessage = "Invalid query " . $connection->error;
-            break;
-        }
-
-        $successMessage = "Cliente se actualizó correctamente";
-
-    } while (false);
+    }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -90,7 +86,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="estilo.css">
 </head>
@@ -197,7 +192,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         </form>
     </div>
     <footer>
-    <p>&copy; <?php echo date("Y"); ?> Service Luxury. Todos los derechos reservados.</p>
+        <p>&copy; <?php echo date("Y"); ?> Service Luxury. Todos los derechos reservados.</p>
     </footer>
 </body>
 

@@ -67,7 +67,7 @@
         if ($connection->connect_error) {
             die("Connection failed: " . $connection->connect_error);
     } else {
-        echo "<p class='text-center text-success'>Conexión exitosa a la base de datos.</p>";
+        echo "<h3 class='text-center text-success'>Conexión exitosa a la base de datos.</h3>";
     }
     
 
@@ -126,6 +126,18 @@
     <footer>
     <p>&copy; <?php echo date("Y"); ?> Service Luxury. Todos los derechos reservados.</p>
     </footer>
+    <script>
+    // Esperar a que la página se cargue completamente
+    document.addEventListener("DOMContentLoaded", function () {
+        // Seleccionar el elemento del mensaje de conexión exitosa
+        var mensajeConexionExitosa = document.querySelector('.text-success');
+
+        // Ocultar el mensaje después de 2 segundos (2000 milisegundos)
+        setTimeout(function () {
+            mensajeConexionExitosa.style.display = 'none';
+        }, 2000);
+    });
+</script>
 
     <!-- Scripts de Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

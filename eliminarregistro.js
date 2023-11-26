@@ -1,14 +1,3 @@
-// scripts.js
-        setTimeout(function () {
-            var successMessage = document.getElementById('success-message');
-            if (successMessage) {
-                successMessage.style.display = 'none';
-            }
-        }, 3000); // 3000 milisegundos = 3 segundos
-    
-
-
-
 function confirmarEliminar(id) {
     var confirmacion = confirm("¿Estás seguro de que quieres eliminar este registro?");
 
@@ -16,3 +5,14 @@ function confirmarEliminar(id) {
         window.location.href = "/crudphp/eliminar.php?id=" + id;
     }
 }
+
+// Esperar a que la página se cargue completamente
+document.addEventListener("DOMContentLoaded", function () {
+    // Seleccionar el elemento del mensaje de conexión exitosa
+    var mensajeConexionExitosa = document.querySelector('.text-success');
+
+    // Ocultar el mensaje después de 2 segundos (2000 milisegundos)
+    setTimeout(function () {
+        mensajeConexionExitosa.style.display = 'none';
+    }, 2000);
+});
