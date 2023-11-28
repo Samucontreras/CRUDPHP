@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="estilo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="/crudphp/eliminarregistro.js"></script>
+    <script src="./eliminarregistro.js"></script>
 </head>
 
 <body>
@@ -50,12 +50,12 @@
 
     <div class="container my-5">
         <h1 class="text-center">Lista de Clientes</h1>
-        <a class="btn btn-custom" href="/CRUDPHP/crear.php" role="button">Nuevo Cliente</a>
+        <a class="btn btn-custom" href="./crear.php" role="button">Nuevo Cliente</a>
         <br>
         <br>
 
         <?php
-        $servername = "localhost:3308";
+        $servername = "localhost:3306";
         $username = "root";
         $password = "";
         $database = "formulario";
@@ -108,7 +108,7 @@
                     <td>$row[address]</td>
                     <td>$row[created_at]</td>
                     <td>
-                        <a class='btn editar' href='/crudphp/editar.php?id=$row[id]'>Editar</a>
+                        <a class='btn editar' href='./editar.php?id=$row[id]'>Editar</a>
                         <a class='btn eliminar' href='javascript:confirmarEliminar($row[id])'>Eliminar</a>
                     </td>
                 </tr>

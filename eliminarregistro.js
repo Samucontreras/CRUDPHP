@@ -2,7 +2,7 @@ function confirmarEliminar(id) {
     var confirmacion = confirm("¿Estás seguro de que quieres eliminar este registro?");
 
     if (confirmacion) {
-        window.location.href = "/crudphp/eliminar.php?id=" + id;
+        window.location.href = "./eliminar.php?id=" + id;
     }
 }
 

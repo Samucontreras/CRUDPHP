@@ -1,5 +1,5 @@
 <?php
-$servername = "localhost:3308";
+$servername = "localhost:3306";
 $username = "root";
 $password = "";
 $database = "formulario";
@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <!-- NavBar -->
     <nav class="navbar navbar-custom">
-        <a class="navbar-brand" href="/crudphp/index.php">
+        <a class="navbar-brand" href="./index.php">
             <img src="/crudphp/img/logo.png" width="160" height="50" class="d-inline-block align-top" alt=""></a>
         <h1 class="h">Service Luxury</h1>
         <ul class="navbar-nav d-flex flex-row">
@@ -172,7 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </form>
     </div>
     <footer>
-    <p>&copy; <?php echo date("Y"); ?> Service Luxury. Todos los derechos reservados.</p>
+        <p>&copy; <?php echo date("Y"); ?> Service Luxury. Todos los derechos reservados.</p>
     </footer>
 </body>
 

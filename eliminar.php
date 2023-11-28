@@ -2,7 +2,7 @@
 if ( isset($_GET["id"]) ) {
     $id = $_GET["id"];
 
-    $servername = "localhost:3308";
+    $servername = "localhost:3306";
     $username = "root";
     $password = "";
     $database = "formulario";
@@ -14,6 +14,6 @@ if ( isset($_GET["id"]) ) {
     $connection->query($sql);
 }
 
-header("location: /crudphp/index.php");
+header("location: ./index.php");
 exit;
 ?>
