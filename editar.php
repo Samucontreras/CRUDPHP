@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <!-- NavBar -->
     <nav class="navbar navbar-custom">
         <a class="navbar-brand" href="/crudphp/index.php">
-            <img src="/crudphp/img/logo.png" width="160" height="50" class="d-inline-block align-top" alt="logo"></a>
+            <img src="./img/logo.png" width="160" height="50" class="d-inline-block align-top" alt="logo"></a>
         <h1 class="h">Service Luxury</h1>
         <ul class="navbar-nav d-flex flex-row">
             <!-- Icons -->

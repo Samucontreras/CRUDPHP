@@ -15,7 +15,7 @@
     <!-- NavBar -->
     <nav class="navbar navbar-custom">
         <a class="navbar-brand" href="#">
-            <img src="/crudphp/img/logo.png" width="160" height="50" class="d-inline-block align-top" alt=""></a>
+            <img src="./img/logo.png" width="160" height="50" class="d-inline-block align-top" alt=""></a>
         <h1 class="h">Service Luxury</h1>
         <ul class="navbar-nav d-flex flex-row">
             <!-- Icons -->
